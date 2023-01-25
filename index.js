@@ -29,13 +29,12 @@ function installModule(provider) {
     let spinner = ora(`Searching '${name}' module in 'NPM'.`).start();
 
     got(`https://registry.npmjs.com/${name}`).json().then(() => {
-      const startedTime = Date.now();
-
       spinner.succeed(`'${name}' module found.`);
 
       exec(`${provider} install`);
 
       rl.question("Global (If it's not global, leave it blank): ", (isGlobal) => {
+        const startedTime = Date.now();
         let globalModule = false;
 
         spinner = spinner.render().start(`'${name}' module installing.`);
