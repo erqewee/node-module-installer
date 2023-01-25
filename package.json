@@ -1,0 +1,17 @@
+{
+  "name": "node-module-installer",
+  "version": "1.0.0",
+  "description": "Basic node (npm) module installer.",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && node index"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Erqewee",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^12.5.3",
+    "ora": "^6.1.2"
+  }
+}
