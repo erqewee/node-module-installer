@@ -1,6 +1,6 @@
 {
   "name": "node-module-installer",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Basic node (npm) module installer.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "Erqewee",
   "license": "ISC",
   "dependencies": {
-    "got": "^12.5.3",
-    "ora": "^6.1.2"
+    "@sapphire/fetch": "^2.4.1",
+    "inquirer": "^9.1.4"
   }
 }
