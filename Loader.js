@@ -17,13 +17,13 @@ export class Loader extends EventEmitter {
    * @param {string} name
    * @returns {void}
    */
-  downloadModule(name, installer = "npm", type = "package") {
+  downloadModule(name, version, installer = "npm", type = "package") {
     fetch(`https://registry.npmjs.com/${name}`).then(() => {
-      exec(`${installer} ${type === "global" ? "add --global" : "add"} ${name}`, (err, stdout, stderr) => {
-        if (stderr) this.emit("packageDownloadError", name, installer, type, stderr);
-        else this.emit("packageDownloaded", name, installer, type);
+      exec(`${installer} ${type === "global" ? "add --global" : "add"} ${name}@${version}`, (err, stdout, stderr) => {
+        if (stderr) this.emit("packageDownloadError", name, version, installer, type, stderr);
+        else this.emit("packageDownloaded", name, version, installer, type);
       });
-    }).catch((reason) => this.emit("packageDownloadError", name, installer, type, reason));
+    }).catch((reason) => this.emit("packageDownloadError", name, version, installer, type, reason));
   };
 
   /**
